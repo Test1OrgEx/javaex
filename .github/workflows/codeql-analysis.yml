@@ -16,8 +16,6 @@ jobs:
          - name: Initialize Code
            uses: github/codeql-action/init@v1
           
-         - name: Autobuild
-           uses: github/codeql-action/autobuild@v2
          
          - name: Perform CodeQl Analysis
            uses: github/codeql-action/analyze@v1
