@@ -33,21 +33,30 @@ jobs:
         environment-url: 'https://orgbdbafc8c.crm8.dynamics.com/'
         user-name: 'SrinivasM@xyzorg221.onmicrosoft.com'
         password-secret: ${{ secrets.password }}
-        solution-name: Cr936bb
-        solution-output-file: out/exported/Cr936bb.zip
+        solution-name: SalesInfo
+        solution-output-file: out/exported/SalesInfo.zip
 
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: out/exported/Cr936bb.zip
-        solution-folder: out/solutions/Cr936bb
+        solution-file: out/exported/SalesInfo.zip
+        solution-folder: out/solutions/ALMLAb
         solution-type: 'Unmanaged'
         overwrite-files: true
 
-    - name: branch-solution, prepare it for a PullRequest
-      uses: microsoft/powerplatform-actions/branch-solution@v0
-      with:
-        solution-folder: out/solutions/Cr936bb
-        solution-target-folder: solutions/Cr936bb
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allow-empty-commit: true
+    - name: Push the Solutions to Repo
+      run: | 
+             git config --global user.name 'GitHub Workflow'
+             git config --global user.email 'githubworkflow@github.com' 
+             git add .
+             git status
+             git commit -m "adding solutions from dev dated ${{ steps.date.outputs.date }}"
+             git push origin main
+            
+    - name: branch-solution, prepare it for a PullRequest
+      uses: microsoft/powerplatform-actions/branch-solution@v0
+      with:
+        solution-folder: out/solutions/ALMLab
+        solution-target-folder: solutions/ALMLab
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        allow-empty-commit: true      
