@@ -25,4 +25,4 @@ jobs:
          - run: java HelloWorldApp.java
          
          - name: Perform CodeQl Analysis
-           uses: github/codeql-action/analyze@v2
+           uses: github/codeql-action/analyze@v3
