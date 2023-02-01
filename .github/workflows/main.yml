@@ -39,7 +39,7 @@ jobs:
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: out/exported/SalesInfo.zip
+        solution-file: out/exported/SalesInfoNew.zip
         solution-folder: out/solutions/ALMLAb
         solution-type: 'Unmanaged'
         overwrite-files: true
