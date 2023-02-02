@@ -36,14 +36,6 @@ jobs:
         solution-name: SalesInfo
         solution-output-file: out/exported/SalesInfoNew.zip
 
-    - name: unpack-solution action
-      uses: microsoft/powerplatform-actions/unpack-solution@v0
-      with:
-        solution-file: out/exported/SalesInfoNew.zip
-        solution-folder: out/solutions/ALMLAb
-        solution-type: 'Unmanaged'
-        overwrite-files: true
-
     - name: Push the Solutions to Repo
       run: |
             git config --global user.name 'GitHub Workflow'
