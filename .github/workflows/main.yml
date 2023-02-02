@@ -53,15 +53,6 @@ jobs:
         password-secret: ${{ secrets.password }}
   
 
-    - name: Push the Solutions to Repo
-      run: |
-            git config --global user.name 'GitHub Workflow'
-            git config --global user.email 'githubworkflow@github.com'
-            git add.
-            git status
-            git commit -m "adding solutions from dev dated ${{ steps.date.outputs.date }}"
-            git push origin main
-         
     - name: branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0
       with:
